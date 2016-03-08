@@ -1,6 +1,6 @@
 require('../server-helpers');
 var RideAPI = require('express').Router();
-
+var io = require('socket.io')
 var Ride = require(__models + '/ride');
 var User = require(__models + '/user');
 
@@ -19,9 +19,10 @@ RideAPI.get('/rides', function(req, res){
     .catch(sendStatusAndData(res, 500, 'Server error getting rides list')
 })
 
+//Posting
 RideAPI.post('/ride/:id', function(req, res){
   var user      = req.params.username
   var location  = req.params.location
-  var timestamp =
+  var timestamp = req.params.created_at
   Ride.createRide()
 })

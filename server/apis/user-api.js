@@ -15,7 +15,7 @@ UserAPI.get('/user/', function(req, res){
 
 //Get User by ID
 UserAPI.get('/user/:id', function(req, res){
-  User.findUserByID(req.params.id)
+  User.findUserById(req.params.id)
     .then(user => res.send(user, 200))
     .catch(err => console.log('no such user', err))
 });
@@ -27,7 +27,7 @@ UserAPI.post('/user', function(req, res){
 
 UserAPI.put('/user/:id', function(req, res){
   var id = req.params.id;
-  User.updateByID(id, request.body)
+  User.updateById(id, request.body)
     .then( () => User.findByID(id))
     .then( user => res.send(user));
 });
