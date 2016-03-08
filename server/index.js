@@ -1,21 +1,21 @@
+
 require('./server-helpers')
 var browserify   = require('browserify-middleware')
-var express      = require('express');
 var Reactify     = require('reactify');
 var Path         = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session')
 var morgan       = require('morgan');
+var express      = require('express');
 
 var routes       = express.Router();
-
+// module.exports = routes;
 //no browserify, utilize webpack
-routes.get('/app-bundle.js',
-  browserify('../client/app.js', {
-    transform: [Reactify]
-  })
-);
+routes.get('/app-bundle.js'
+  // browserify('../client/app.js', {
+    // transform: [Reactify]
+  );
 
 //Example test route for test
 routes.get('/api/tags-example', function(req, res) {
@@ -41,6 +41,7 @@ if(process.env.NODE_ENV !== 'test') {
 
 
 //Mounting router mount
+  app.use(app.router)
   app.use('/', routes)
 
   var chat = require('./apis/chat-api');

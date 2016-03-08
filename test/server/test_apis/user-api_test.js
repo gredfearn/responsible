@@ -1,11 +1,13 @@
-var db = require(__server + '/lib/db')
+require(TEST_HELPER)
+// var db = require(__server + '/lib/db')
 var request = require('supertest-as-promised')
-var UserAPI = require(__server + '/apis/user-api')
+var routes = require(__server + '/index.js')
 
 describe("User API", function() {
 
   var app = TestHelper.createApp()
-  app.use('/user', UserAPI)
+
+  app.use('/user', routes)
   app.testReady()
 
   beforeEach(function() {
