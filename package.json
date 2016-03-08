@@ -21,7 +21,9 @@
     "passport-local": "^1.0.0",
     "ramda": "^0.19.1",
     "reactify": "^1.1.1",
-    "socket.io": "^1.4.5"
+    "socket.io": "^1.4.5",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.6.5",

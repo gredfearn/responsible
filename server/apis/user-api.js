@@ -7,7 +7,7 @@ var User = require(__models + '/user');
 module.exports = UserAPI;
 
 //Get all users
-UserAPI.get('/user/', function(req, res){
+UserAPI.get('/user', function(req, res){
   User.getUsers()
     .then(users => res.send(users))
     .catch(err => console.log(err))

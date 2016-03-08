@@ -5,7 +5,9 @@ var User = {};
 module.exports = User;
 
 User.getUsers = function() {
-  return db.select('user').from('users')
+ return { name: 'Grant', address: '700 rock ledge' }
+  // return db.select('user').from('users')
+ }
 }
 
 User.findUserById = function(userId){
