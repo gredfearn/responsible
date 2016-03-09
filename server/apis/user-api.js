@@ -22,7 +22,10 @@ UserAPI.get('/user/:id', function(req, res){
 
 //Create a user
 UserAPI.post('/user', function(req, res){
-  //check and see what OAuth gives, pass that in req
+  var user = req.body
+  User.createUser(user)
+    .then( () => console.log('sent create user request to database'))
+    .catch( () => console.log('error creating user'))
 })
 
 UserAPI.put('/user/:id', function(req, res){
