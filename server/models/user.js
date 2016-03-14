@@ -8,7 +8,7 @@ module.exports = User;
 // get all users
 User.getUsers = function () {
   return db.select('*').from('users')
-    .catch(reportError('error retrieving username by userId'))
+    .cadtch(reportError('error retrieving username by userId'))
     .then(function (users) {
       return users;
     });
