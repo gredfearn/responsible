@@ -14,7 +14,6 @@ export function List({ riders, user, onRiderClick, }) {
     <h1>Friends Waiting for Rides!</h1>
       {
         riders.map(function (rider) {
-          console.log('key', rider.user_id);
           return <RiderItem
             key={rider.user_id}
             ride_driver={user.user_id}
@@ -32,12 +31,10 @@ const mapStateToProps = function (state) {
   return state.toJS();
 };
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, user) {
   return {
     onRiderClick: curry(function (ride_driver, user_id) {
-      console.log('we have a rider and a driver', ride_driver, user_id);
-
-      // dispatch(userAction.addFriend(friendObject));
+      dispatch(rideAction.acceptRide(ride_driver, user_id));
     }),
   };
 };

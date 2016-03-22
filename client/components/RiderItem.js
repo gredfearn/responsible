@@ -1,7 +1,6 @@
 import { UserImage } from './UserImage';
 
 export function RiderItem({ user_id, location, onRiderItemClick, ride_driver, }) {
-  console.log('what is here?', ride_driver);
   /* Commented this out to avoid lat/long errors */
 
   // return (
@@ -14,7 +13,7 @@ export function RiderItem({ user_id, location, onRiderItemClick, ride_driver, })
   return (
     <div className="riderItem">
       <div key={user_id} className="rider_id" onClick=
-        {onRiderItemClick.bind(null, user_id)}>{user_id}</div>
+        {onRiderItemClick.bind(null, ride_driver, user_id)}>{user_id}</div>
     </div>
   );
 };
