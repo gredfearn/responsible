@@ -38,6 +38,7 @@ export default function(state = Map(), action) {
     case 'ADD_DRIVER_SENT':
     case 'ADD_DRIVER':
     case 'ADD_DRIVER_ERROR':
+    case 'MATCH_RIDER':
       return handleDriver(state, action);
     case 'REMOVE_DRIVER_SENT':
     case 'REMOVE_DRIVER':
