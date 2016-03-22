@@ -9,3 +9,4 @@ export function RiderItem({ user_id, location, onRiderItemClick }) {
     </div>
     );
 };
+

@@ -110,6 +110,9 @@ RideAPI.post('/drivers', function (req, res) {
   var attrs = req.body;
   Ride.createDriver(attrs)
     .then((driver) => Friends.getFriendRiders(driver.foreign_driver))
+    .then(function (data) {
+      console.log('what is this data?', data);
+    })
     .then(sendStatusAndData(res, 201))
     .catch(sendStatusAndError(res, 500, 'error creating driver'));
 });
