@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import * as rideAction from '../actionCreators/ride';
 
 import{ RiderItem } from '../components/RiderItem';
 import * as rideActions from '../actionCreators/ride';
