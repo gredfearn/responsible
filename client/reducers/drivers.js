@@ -10,8 +10,6 @@ export function handleDriver(state = Map(), action) {
       return addDriverSent(state, action);
     case 'ADD_DRIVER_ERROR':
       return addDriverError(state, action);
-    case 'MATCH_RIDER':
-      return matchRider(state, action);
     case 'REMOVE_DRIVER':
       return removeDriver(state, action);
     case 'REMOVE_DRIVER_SENT':
@@ -46,18 +44,6 @@ function addDriverError(state, action) {
     driverAddError: action.entry,
   };
   return state.merge(updates);
-};
-
-function matchRider(state, action) {
-  let updates = {
-    isWaitingForMatch: false,
-    isAddingDriver: false,
-  };
-  let newRide = {
-    ride_id: // from db,
-    match: // passed in,
-    directions: // not sure,
-  }
 };
 
 function removeDriver(state, action) {

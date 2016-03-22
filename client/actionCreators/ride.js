@@ -54,16 +54,18 @@ export function cancelRide({ user_id, ride_id }) {
 export function acceptRide(ride_driver, ride_rider) {
   return function (dispatch) {
     dispatch(acceptRideSent());
+    console.log('ride stuff", ride_driver, ride_rider');
 
-    fetch('/rides', {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify({ ride_driver, ride_rider }),
-    })
-      .then(checkStatus)
-      .then(json)
-      .then((body) => dispatch(acceptRideSuccess(body)))
-      .catch((error) => dispatch(acceptRideError(error)));
+    //   fetch('/rides', {
+    //     method: 'POST',
+    //     headers: headers,
+    //     body: JSON.stringify({ ride_driver, ride_rider }),
+    //   })
+    //     .then(checkStatus)
+    //     .then(json)
+    //     .then((body) => dispatch(acceptRideSuccess(body)))
+    //     .catch((error) => dispatch(acceptRideError(error)));
+    // };
   };
 };
 
@@ -127,8 +129,4 @@ export function removeRider(riderId) {
 
 export function setDirections(directions) {
   return { type: 'SET_DIRECTIONS', entry: directions };
-}
-
-export function matchRider(rider) {
-  return { type: 'MATCH_RIDER', entry: rider };
 }

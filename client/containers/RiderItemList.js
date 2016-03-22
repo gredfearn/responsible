@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { curry } from 'ramda';
+
 import * as rideAction from '../actionCreators/ride';
 
 import{ RiderItem } from '../components/RiderItem';
@@ -6,7 +8,7 @@ import * as rideActions from '../actionCreators/ride';
 
 function nullFn(e) { console.log('you clicked me ' + e.target.className); };
 
-export function List({ riders, onRiderClick=nullFn, }) {
+export function List({ riders, user, onRiderClick, }) {
   return (
     <div className="riderList">
     <h1>Friends Waiting for Rides!</h1>
@@ -15,6 +17,7 @@ export function List({ riders, onRiderClick=nullFn, }) {
           console.log('key', rider.user_id);
           return <RiderItem
             key={rider.user_id}
+            ride_driver={user.user_id}
             onRiderItemClick={onRiderClick}
             {...rider}
           />;
@@ -31,10 +34,11 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = function (dispatch) {
   return {
-    onRiderClick() {
-      dispatch(rideAction.matchRider);
-    },
+    onRiderClick: curry(function (ride_driver, user_id) {
+      console.log('we have a rider and a driver', ride_driver, user_id);
 
+      // dispatch(userAction.addFriend(friendObject));
+    }),
   };
 };
 

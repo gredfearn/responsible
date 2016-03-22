@@ -78,17 +78,12 @@ Friends.getFriendRiders = function (userId) {
   return Friends.getFriendIds(userId)
     .then(function (_friends) {
       friends = _friends;
-      console.log('should i have friends?', friends);
     })
     .then(Ride.getRiders)
     .then(function (rideArray) {
       riders = rideArray;
     })
     .then(() => Friends.intersection(friends, riders))
-    .then(function (data) {
-      console.log('did I lose data here?', data, 'friends', friends, 'riders', riders);
-      return data;
-    })
     .catch(function (err) {
       console.log('error', err);
     });
