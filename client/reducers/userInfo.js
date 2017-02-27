@@ -24,7 +24,7 @@ function requestUserInfo(state) {
 }
 
 function receiveUserInfo(state, { entry }) {
-  console.log('received user information from server:', entry);
+  // console.log('received user information from server:', entry);
 
   let newState;
   let userUpdates = {

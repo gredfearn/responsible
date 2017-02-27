@@ -4,7 +4,8 @@ import { handleUserInfo } from './userInfo';
 import { handleAddress } from './userAddress';
 
 export default function (state = Map(), action) {
-  // console.log('reducing user state:', state.toJS());
+  // console.warn('reducing user state:', state.toJS());
+  // console.warn('with action:', action);
 
   switch (action.type) {
     case 'REQUEST_USER_INFO':

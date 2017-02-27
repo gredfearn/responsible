@@ -8,7 +8,7 @@ export const authMiddleware = store => next => action => {
   const auths = [github, google];
 
   if (!hasAccessToken(auths)) {
-    if (isLoginRedirect(action)) {
+    if (isLoginRedirect(action) || isLocationUpdate(action)) {
       next(action);
     } else {
       store.dispatch(push('/login'));
@@ -30,6 +30,10 @@ function hasAccessToken(auths) {
 function isLoginRedirect(action) {
   return (action.payload && action.payload.args && action.payload.args[0] === '/login') ||
       (action.payload && action.payload.pathname === '/login');
+}
+
+function isLocationUpdate(action) {
+  return action.type === 'SET_LOCATION'
 }
 
 function isProcessingUser(action, store) {

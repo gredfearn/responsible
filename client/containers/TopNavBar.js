@@ -62,7 +62,8 @@ const mapDispatchToProps = function (dispatch) {
       // Our current approach is to modify onCancel in the rendering of our
       // component - a better approach might be to augment that here, where we have access
       // to the component's next props through the second parameter of mapDispatchToProps
-      console.log('dispatching cancel:', user_id, ride_id);
+
+      // console.log('dispatching cancel:', user_id, ride_id);
       dispatch(rideAction.cancelRide({ user_id, ride_id }));
     },
     onEndDriver(user_id) {
